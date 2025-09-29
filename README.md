@@ -55,4 +55,5 @@ Email: spicemecca@sm.com
 Phone: +27 11 234 5678
 
 https://github.com/VCCT-WEDE5020-2025-G1/ST10477069-POE1-WEDE/tree/main
+https://github.com/VCCT-WEDE5020-2025-G1/ST10477069-POE1-WEDE/blob/main/README.md
 
