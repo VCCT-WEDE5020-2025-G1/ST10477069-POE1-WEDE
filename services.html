@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Products | Spices Mecca</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #8B4513;
+      padding: 15px 40px;
+      color: #fff;
+    }
+
+    .navbar .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover, .active {
+      color: #FFD700;
+    }
+
+    /* Product Section */
+    .products-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      color: #5A2E0C;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: #8B4513;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 40px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .product-card h3 {
+      margin: 15px 0 10px;
+      color: #5A2E0C;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #8B0000;
+      display: block;
+      margin-top: 10px;
+    }
+
+    /* Cart Icon */
+    .cart-icon {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: #8B4513;
+      color: #fff;
+      border-radius: 50%;
+      padding: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cart-icon:hover {
+      background: #FFD700;
+      color: #5A2E0C;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #5A2E0C;
+      color: white;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    footer h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      max-width: 700px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .contact-info {
+      margin: 10px 0;
+    }
+
+    .discount-section {
+      margin-top: 20px;
+    }
+
+    .discount-section input[type="email"] {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      width: 250px;
+    }
+
+    .discount-section button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #FFD700;
+      color: #5A2E0C;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: 0.3s;
+    }
+
+    .discount-section button:hover {
+      background-color: #ffb700;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="logo">Spices Mecca</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <h1 class="section-title">Our Premium Spices</h1>
+    <p class="section-subtitle">Crafted by nature, perfected by Spices Mecca.</p>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/Saffron.jpeg" alt="Saffron" />
+        <h3>Persian Saffron</h3>
+        <p>Rich in aroma and color, handpicked from the fields of Iran. Perfect for luxurious dishes.</p>
+        <span class="price">R150</span>
+        <div class="cart-icon">🛒</div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/RB.jpeg" alt="Cinnamon" />
+        <h3>Ceylon Cinnamon</h3>
+        <p>Pure, sweet, and delicate. The finest cinnamon harvested from Sri Lanka’s lush forests.</p>
+        <span class="price">R49.99</span>
+        <div class="cart-icon">🛒</div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/R.jpeg" alt="Turmeric" />
+        <h3>Golden Turmeric</h3>
+        <p>Known for its vibrant color and healing properties, sourced from organic Indian farms.</p>
+        <span class="price">R77.49</span>
+        <div class="cart-icon">🛒</div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/RK.jpeg" alt="Black Pepper" />
+        <h3>Tellicherry Black Pepper</h3>
+        <p>Strong and aromatic. The king of spices, cultivated in the heart of Kerala, India.</p>
+        <span class="price">R29.99</span>
+        <div class="cart-icon">🛒</div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/RZ.jpeg" alt="Cardamom" />
+        <h3>Persian Cardamom</h3>
+        <p>A versatile spice with a complex flavor profile, perfect for both sweet and savory dishes.</p>
+        <span class="price">R100</span>
+        <div class="cart-icon">🛒</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <h3>About Spices Mecca</h3>
+    <p>At Spices Mecca, we believe in bringing the world’s finest spices directly to your kitchen. Our products are ethically sourced, ensuring quality and purity in every grain.</p>
+
+    <p><strong>Policies:</strong> We value transparency and freshness. Read our privacy and return policies for a safe and satisfying shopping experience.</p>
+
+    <div class="contact-info">
+      <p>📞 +27 649201185 
+         📧 spicesmecca@sm.com</p>
+      <p>📍 Cape Town, South Africa</p>
+    </div>
+
+    <div class="discount-section">
+      <p><strong>Get 15% OFF</strong> your first order! Enter your email below:</p>
+      <input type="email" placeholder="Enter your email" />
+      <button>Get Discount</button>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Spices Mecca — Crafted with heritage and passion.
+    </div>
+  </footer>
+</body>
+</html>
+

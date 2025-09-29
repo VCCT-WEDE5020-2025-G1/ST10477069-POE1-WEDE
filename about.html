@@ -2,54 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About | Spice Mecca</title>
-  <link rel="stylesheet" href="styles.css"> <!-- optional if you put styles in a CSS file -->
-  <style>
-    body { font-family: Inter, sans-serif; margin:0; padding:0; background:#fff; color:#333; }
-    header, footer { background:#f8fafc; padding:1rem 2rem; border-bottom:1px solid #e2e8f0; }
-    .container { width: min(1200px, 92%); margin-inline: auto; padding:2rem 0; }
-    h1 { color:#f05a28; font-size:2rem; margin-bottom:1rem; }
-    p { line-height:1.6; max-width:800px; }
-    a { color:#f05a28; text-decoration:none; font-weight:600; }
-    a:hover { text-decoration:underline; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Spices Mecca</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <a href="index.html" style="font-weight:800; color:#0f1b2a; font-size:1.2rem;">← Back to Home</a>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="logo">🕌 Spices Mecca</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Main Content -->
-  <main class="container">
-    <h1>About Spice Mecca</h1>
-    <p>
-      Since 1985, <strong>Spice Mecca</strong> has been dedicated to bringing the 
-      finest spices, herbs, and blends from around the world to your kitchen. 
-      Our mission is to provide premium quality products that inspire creativity 
-      and authenticity in every meal.
-    </p>
-
-    <p>
-      With over 500+ products sourced from more than 50 countries, we are proud 
-      to serve thousands of happy customers. From traditional Middle Eastern blends 
-      to exotic international flavors, Spice Mecca is your trusted partner for all 
-      things spice.
-    </p>
-    
-    <p>
-      Want to explore our products? <a href="index.html">Shop Now</a>
-    </p>
-  </main>
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-content">
+      <div class="about-text">
+        <h1>Our Story</h1>
+        <p>
+          Spices Mecca was born from a passion for authentic flavors and a deep respect for tradition. 
+          We source our spices directly from local farmers across the globe — ensuring purity, freshness, and sustainability in every grain.
+        </p>
+        <p>
+          Our mission is simple: to bring the soul of the spice markets to your kitchen. Whether you are a home cook or a professional chef, 
+          Spices Mecca offers the finest selection of herbs and blends to elevate your dishes.
+        </p>
+        <p>
+          Each product reflects our values — quality, heritage, and excellence. Because at Spices Mecca, every spice tells a story.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="images/spices.jpeg" alt="Spices Mecca Story" />
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer style="border-top:1px solid #e2e8f0; text-align:center; padding:1rem; color:#64748b;">
-    © <span id="year"></span> Spice Mecca. All rights reserved.
+  <footer>
+    <p>© 2025 Spices Mecca. Crafted with heritage and passion.</p>
   </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
+
