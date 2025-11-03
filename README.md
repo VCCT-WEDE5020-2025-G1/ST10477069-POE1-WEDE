@@ -2,7 +2,17 @@
 
 A modern, elegant e-commerce website offering authentic spices sourced from around the world — bringing rich aromas and vibrant flavors directly to your kitchen.
 
-![Spices Mecca](https://github.com/user-attachments/assets/99e2d7ec-83c6-4e92-8584-b45f2b027d53)
+<img width="1822" height="911" alt="image" src="https://github.com/user-attachments/assets/96e1d982-be56-48e7-82e2-22083017e05e" />
+<img width="1822" height="921" alt="image" src="https://github.com/user-attachments/assets/9a04f7fc-d91e-4dba-859d-b70fdd440910" />
+<img width="1832" height="921" alt="image" src="https://github.com/user-attachments/assets/da10fdd4-b84d-4e2d-bb62-a6f47801f8c4" />
+<img width="1828" height="921" alt="image" src="https://github.com/user-attachments/assets/2fe5e17f-50d1-48cc-9399-3eb11a2836e3" />
+<img width="1832" height="555" alt="image" src="https://github.com/user-attachments/assets/8bd1cac4-1d21-4823-844b-412ece653ad4" />
+<img width="1832" height="921" alt="image" src="https://github.com/user-attachments/assets/7642ad75-bc3a-4f10-8552-8b59fface509" />
+<img width="1837" height="922" alt="image" src="https://github.com/user-attachments/assets/5b4923a0-1496-4828-ab76-418550b548ec" />
+<img width="890" height="605" alt="image" src="https://github.com/user-attachments/assets/627b88d6-3378-4171-8f03-72e227f24133" />
+
+
+
 
 ---
 
