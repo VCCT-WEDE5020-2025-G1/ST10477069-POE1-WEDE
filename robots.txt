@@ -6,6 +6,7 @@ Allow: /index.html
 Allow: /about.html
 Allow: /services.html
 Allow: /contact.html
+Allow: /enquiry.html
 Allow: /Persian-Saffron.html
 Allow: /Ceylon-Cinnamon.html
 Allow: /Golden-Turmeric.html

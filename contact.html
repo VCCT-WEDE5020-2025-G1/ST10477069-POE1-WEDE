@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
   <script src="src/js/main.js" defer></script>
   <script src="src/js/map.js" defer></script>
+  <script src="src/js/form-validation.js" defer></script>
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
@@ -97,10 +98,26 @@
     .contact-form input, .contact-form textarea {
       padding: 12px;
       border-radius: 8px;
-      border: 1px solid #ccc;
+      border: 2px solid #e2d6c7;
       font-size: 16px;
       width: 100%;
       resize: none;
+      transition: border-color 0.3s;
+      box-sizing: border-box;
+    }
+
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: #d4af37;
+    }
+
+    .contact-form .form-group.error input,
+    .contact-form .form-group.error textarea {
+      border-color: #d32f2f;
+    }
+
+    .contact-form .form-group.error .error-message {
+      display: block;
     }
 
     .contact-form button {
@@ -148,6 +165,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Products</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="enquiry.html">Enquiry</a></li>
       </ul>
     </nav>
   </header>
@@ -174,11 +192,23 @@
     <!-- Form -->
     <div class="contact-form">
       <h2>Contact Us</h2>
-      <form action="#" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="text" name="subject" placeholder="Subject" required />
-        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+      <form action="#" method="POST" novalidate>
+        <div class="form-group" style="margin-bottom: 15px;">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter your name</span>
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+          <input type="email" name="email" placeholder="Your Email" required />
+          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter a valid email</span>
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+          <input type="text" name="subject" placeholder="Subject" required />
+          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter a subject</span>
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+          <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter your message</span>
+        </div>
         <button type="submit">Send Message</button>
       </form>
     </div>

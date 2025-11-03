@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Enquiry | Bulk Orders & Wholesale | Spices Mecca</title>
+  <meta name="description" content="Submit product enquiries, bulk order requests, or wholesale inquiries at Spices Mecca. Get information about pricing, availability, and partnership opportunities." />
+  <meta name="keywords" content="spice enquiry, bulk spice orders, wholesale spices, product inquiry, distributor inquiry, partnership inquiry" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.spicesmecca.com/enquiry.html" />
+  <link rel="stylesheet" href="src/styles/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <script src="src/js/main.js" defer></script>
+  <script src="src/js/form-validation.js" defer></script>
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #FFF8E7;
+      color: #3a2e21;
+      margin: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background-color: #4b2e1d;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #D4AF37;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #D4AF37;
+    }
+
+    .enquiry-section {
+      padding: 80px 10%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .enquiry-section h1 {
+      font-family: 'Playfair Display', serif;
+      color: #4b2e1d;
+      margin-bottom: 10px;
+      font-size: 36px;
+    }
+
+    .enquiry-section .subtitle {
+      color: #6b4a33;
+      margin-bottom: 40px;
+      font-size: 18px;
+    }
+
+    .enquiry-form {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #4b2e1d;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 2px solid #e2d6c7;
+      font-size: 16px;
+      font-family: 'Open Sans', sans-serif;
+      transition: border-color 0.3s;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #d4af37;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-group .error-message {
+      color: #d32f2f;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .form-group.error input,
+    .form-group.error select,
+    .form-group.error textarea {
+      border-color: #d32f2f;
+    }
+
+    .form-group.error .error-message {
+      display: block;
+    }
+
+    .form-group .help-text {
+      font-size: 14px;
+      color: #6b4a33;
+      margin-top: 5px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #d4af37, #c19022);
+      color: #fff;
+      border: none;
+      padding: 14px 36px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(135deg, #c19022, #b89329);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .response-message {
+      display: none;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+      background: #e8f5e9;
+      border-left: 4px solid #4caf50;
+      color: #2e7d32;
+    }
+
+    .response-message.error {
+      background: #ffebee;
+      border-left-color: #f44336;
+      color: #c62828;
+    }
+
+    .response-message.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      background-color: #4b2e1d;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .enquiry-section {
+        padding: 40px 5%;
+      }
+
+      .enquiry-form {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo"><img src="src/images/logo.jpeg" alt="Spices Mecca Logo" style="height:40px;vertical-align:middle;"> Spices Mecca</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="enquiry.html" class="active">Enquiry</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Enquiry Section -->
+  <section class="enquiry-section">
+    <h1>Product & Service Enquiry</h1>
+    <p class="subtitle">Interested in bulk orders, wholesale pricing, or partnership opportunities? We'd love to hear from you!</p>
+
+    <div class="enquiry-form">
+      <form id="enquiryForm" novalidate>
+        <div class="form-group">
+          <label for="name">Full Name <span style="color: #d32f2f;">*</span></label>
+          <input type="text" id="name" name="name" required>
+          <span class="error-message">Please enter your full name</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address <span style="color: #d32f2f;">*</span></label>
+          <input type="email" id="email" name="email" required>
+          <span class="error-message">Please enter a valid email address</span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number <span style="color: #d32f2f;">*</span></label>
+          <input type="tel" id="phone" name="phone" required pattern="[0-9+\s\-()]+">
+          <span class="error-message">Please enter a valid phone number</span>
+          <span class="help-text">Format: +27 12 345 6789 or 012 345 6789</span>
+        </div>
+
+        <div class="form-group">
+          <label for="enquiryType">Type of Enquiry <span style="color: #d32f2f;">*</span></label>
+          <select id="enquiryType" name="enquiryType" required>
+            <option value="">Select enquiry type...</option>
+            <option value="product">Product Information & Availability</option>
+            <option value="bulk">Bulk Order Inquiry</option>
+            <option value="wholesale">Wholesale Pricing</option>
+            <option value="partnership">Partnership/Distributor Opportunity</option>
+            <option value="sponsorship">Sponsorship Opportunity</option>
+          </select>
+          <span class="error-message">Please select an enquiry type</span>
+        </div>
+
+        <div class="form-group" id="productGroup" style="display: none;">
+          <label for="product">Product of Interest</label>
+          <select id="product" name="product">
+            <option value="">Select a product...</option>
+            <option value="saffron">Persian Saffron</option>
+            <option value="cinnamon">Ceylon Cinnamon</option>
+            <option value="turmeric">Golden Turmeric</option>
+            <option value="pepper">Tellicherry Black Pepper</option>
+            <option value="cardamom">Persian Cardamom</option>
+            <option value="multiple">Multiple Products</option>
+            <option value="other">Other Products</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="quantityGroup" style="display: none;">
+          <label for="quantity">Estimated Quantity (kg)</label>
+          <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity">
+          <span class="help-text">For bulk orders, please specify approximate quantity</span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message <span style="color: #d32f2f;">*</span></label>
+          <textarea id="message" name="message" required placeholder="Please provide details about your enquiry..."></textarea>
+          <span class="error-message">Please enter your message</span>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Submit Enquiry</button>
+      </form>
+
+      <div id="responseMessage" class="response-message"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Spices Mecca — Crafted with heritage and passion.
+  </footer>
+</body>
+</html>
+
