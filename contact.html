@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Spices Mecca</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="src/styles/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css">
+  <script src="src/js/main.js" defer></script>
+  <script src="src/js/map.js" defer></script>
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
@@ -136,7 +137,7 @@
 <body>
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">Spices Mecca</div>
+    <div class="logo"><img src="src/images/logo.jpeg" alt="Spices Mecca Logo" style="height:40px;vertical-align:middle;"> Spices Mecca</div>
     <nav>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -156,6 +157,14 @@
       <p>📧 Email: spicesmecca@sm.com</p>
       <p>📍 Address: Cape Town, South Africa</p>
       <p>Feel free to reach out for orders, queries, or collaborations!</p>
+      
+      <!-- Interactive Map -->
+      <div id="map-container"></div>
+      
+      <!-- Modal Trigger Button -->
+      <button class="btn-primary" onclick="window.modal.open('<h2>Contact Information</h2><p><strong>Phone:</strong> +27 649201185</p><p><strong>Email:</strong> spicesmecca@sm.com</p><p><strong>Address:</strong> Cape Town, South Africa</p><p><strong>Business Hours:</strong> Monday - Friday: 9:00 AM - 6:00 PM</p>')" style="margin-top: 20px;">
+        View Contact Details
+      </button>
     </div>
 
     <!-- Form -->

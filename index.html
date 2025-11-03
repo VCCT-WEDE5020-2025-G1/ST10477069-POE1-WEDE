@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spices Mecca | Home</title>
-  <link rel="stylesheet" href="./src/styles/style.css" />
+  <link rel="stylesheet" href="src/styles/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css">
+  <script src="src/js/main.js" defer></script>
 </head>
 <body>
   <!-- Navigation -->
@@ -50,65 +50,72 @@
   <section class="products-section" id="products">
     <h1 class="section-title">Our Premium Spices</h1>
     <p class="section-subtitle">Crafted by nature, perfected by Spices Mecca.</p>
-    <input type="text" id="productSearch" placeholder="Search products..." onkeyup="filterProducts()" style="margin-bottom: 30px; padding: 10px; width: 300px; font-size: 17px; border-radius: 8px; border:1px solid #ccc;">
+    <div class="search-container">
+      <input type="text" id="productSearch" placeholder="Search products...">
+      <select id="productSort">
+        <option value="">Sort by...</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="name-asc">Name: A-Z</option>
+        <option value="name-desc">Name: Z-A</option>
+      </select>
+    </div>
     <div class="product-grid" id="productGrid">
       <div class="product-card">
-        <a href="Persian-Saffron.html"><img src="src/images/R.jpeg" alt="Saffron" /></a>
-        <h3><a href="Persian-Saffron.html">Persian Saffron</a></h3>
+        <a href="Persian-Saffron.html"><img src="src/images/Saffron.jpeg" alt="Saffron" /></a>
         <p>Rich in aroma and color, handpicked from the fields of Iran. Perfect for luxurious dishes.</p>
         <span class="price">R150</span>
-        <div class="cart-icon">🛒</div>
-      </div>
+        <h3><a class="product-name-btn" href="Persian-Saffron.html">Persian Saffron</a></h3>
+          </div>
       <div class="product-card">
         <a href="Ceylon-Cinnamon.html"><img src="src/images/RB.jpeg" alt="Cinnamon" /></a>
-        <h3><a href="Ceylon-Cinnamon.html">Ceylon Cinnamon</a></h3>
-        <p>Pure, sweet, and delicate. The finest cinnamon harvested from Sri Lanka’s lush forests.</p>
+        <p>Pure, sweet, and delicate. The finest cinnamon harvested from Sri Lanka's lush forests.</p>
         <span class="price">R49.99</span>
-        <div class="cart-icon">🛒</div>
-      </div>
+        <h3><a class="product-name-btn" href="Ceylon-Cinnamon.html">Ceylon Cinnamon</a></h3>
+        </div>
       <div class="product-card">
-        <a href="Golden-Turmeric.html"><img src="src/images/RK.jpeg" alt="Turmeric" /></a>
-        <h3><a href="Golden-Turmeric.html">Golden Turmeric</a></h3>
+        <a href="Golden-Turmeric.html"><img src="src/images/R.jpeg" alt="Turmeric" /></a>
         <p>Known for its vibrant color and healing properties, sourced from organic Indian farms.</p>
         <span class="price">R77.49</span>
-        <div class="cart-icon">🛒</div>
-      </div>
+        <h3><a class="product-name-btn" href="Golden-Turmeric.html">Golden Turmeric</a></h3>
+          </div>
       <div class="product-card">
-        <a href="Tellicherry-Black-Pepper.html"><img src="src/images/RL.jpeg" alt="Black Pepper" /></a>
-        <h3><a href="Tellicherry-Black-Pepper.html">Tellicherry Black Pepper</a></h3>
+        <a href="Tellicherry-Black-Pepper.html"><img src="src/images/RK.jpeg" alt="Black Pepper" /></a>
         <p>Strong and aromatic. The king of spices, cultivated in the heart of Kerala, India.</p>
         <span class="price">R29.99</span>
-        <div class="cart-icon">🛒</div>
-      </div>
+        <h3><a class="product-name-btn" href="Tellicherry-Black-Pepper.html">Tellicherry Black Pepper</a></h3>
+        </div>
       <div class="product-card">
         <a href="Persian-Cardamom.html"><img src="src/images/RZ.jpeg" alt="Cardamom" /></a>
-        <h3><a href="Persian-Cardamom.html">Persian Cardamom</a></h3>
         <p>A versatile spice with a complex flavor profile, perfect for both sweet and savory dishes.</p>
         <span class="price">R100</span>
-        <div class="cart-icon">🛒</div>
-      </div>
+        <h3><a class="product-name-btn" href="Persian-Cardamom.html">Persian Cardamom</a></h3>
+          </div>
     </div>
   </section>
-  <script>
-    function filterProducts() {
-      var input = document.getElementById('productSearch');
-      var filter = input.value.toUpperCase();
-      var grid = document.getElementById('productGrid');
-      var cards = grid.getElementsByClassName('product-card');
-      for(var i=0; i<cards.length; i++) {
-        var h3 = cards[i].getElementsByTagName('h3')[0];
-        if(h3.innerHTML.toUpperCase().indexOf(filter) > -1){
-          cards[i].style.display = '';
-        } else {
-          cards[i].style.display = 'none';
-        }
-      }
-    }
-  </script>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Spices Mecca. Crafted with heritage and passion.</p>
+    <h3>About Spices Mecca</h3>
+    <p>At Spices Mecca, we believe in bringing the world's finest spices directly to your kitchen. Our products are ethically sourced, ensuring quality and purity in every grain.</p>
+
+    <p><strong>Policies:</strong> We value transparency and freshness. Read our privacy and return policies for a safe and satisfying shopping experience.</p>
+
+    <div class="contact-info">
+      <p>📞 +27 649201185 
+         📧 spicesmecca@sm.com</p>
+      <p>📍 Cape Town, South Africa</p>
+        </div>
+
+    <div class="discount-section">
+      <p><strong>Get 15% OFF</strong> your first order! Enter your email below:</p>
+      <input type="email" placeholder="Enter your email" />
+      <button>Get Discount</button>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Spices Mecca — Crafted with heritage and passion.
+    </div>
   </footer>
 </body>
 </html>
