@@ -390,3 +390,7 @@ For detailed documentation on specific features:
 **Built with ❤️ for authentic spice lovers everywhere**
 
 © 2025 Spices Mecca — Crafted with heritage and passion.
+
+--------------------------------------------------------------------
+ST10477069 POE
+
