@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Allow all pages
+Allow: /index.html
+Allow: /about.html
+Allow: /services.html
+Allow: /contact.html
+Allow: /Persian-Saffron.html
+Allow: /Ceylon-Cinnamon.html
+Allow: /Golden-Turmeric.html
+Allow: /Tellicherry-Black-Pepper.html
+Allow: /Persian-Cardamom.html
+
+# Allow CSS and JS
+Allow: /src/styles/
+Allow: /src/js/
+
+# Allow images
+Allow: /src/images/
+
+# Disallow admin or private areas (if any exist in future)
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.spicesmecca.com/sitemap.xml
+
