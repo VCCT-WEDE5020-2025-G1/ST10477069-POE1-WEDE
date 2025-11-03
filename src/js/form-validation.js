@@ -61,6 +61,22 @@ class FormValidator {
     });
 
     this.setupRealTimeValidation(form);
+
+    // Character counter for message textarea
+    const messageField = form.querySelector('#contactMessage');
+    if (messageField) {
+      const charCount = document.getElementById('charCount');
+      messageField.addEventListener('input', () => {
+        if (charCount) {
+          charCount.textContent = messageField.value.length;
+          if (messageField.value.length > 2000) {
+            charCount.style.color = '#d32f2f';
+          } else {
+            charCount.style.color = '#6b4a33';
+          }
+        }
+      });
+    }
   }
 
   setupRealTimeValidation(form) {
@@ -119,7 +135,32 @@ class FormValidator {
       const pattern = new RegExp(field.getAttribute('pattern'));
       if (!pattern.test(field.value)) {
         isValid = false;
-        errorText = 'Please enter a valid format';
+        errorText = field.getAttribute('title') || 'Please enter a valid format';
+      }
+    }
+
+    // Min/Max length validation
+    if (field.hasAttribute('minlength') && field.value) {
+      const minLength = parseInt(field.getAttribute('minlength'));
+      if (field.value.length < minLength) {
+        isValid = false;
+        errorText = `Minimum ${minLength} characters required`;
+      }
+    }
+
+    if (field.hasAttribute('maxlength') && field.value) {
+      const maxLength = parseInt(field.getAttribute('maxlength'));
+      if (field.value.length > maxLength) {
+        isValid = false;
+        errorText = `Maximum ${maxLength} characters allowed`;
+      }
+    }
+
+    // Select validation
+    if (field.tagName === 'SELECT' && field.hasAttribute('required')) {
+      if (!field.value || field.value === '') {
+        isValid = false;
+        errorText = 'Please select an option';
       }
     }
 
@@ -335,7 +376,8 @@ class FormValidator {
   }
 
   processContactForm(form) {
-    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitBtn = document.getElementById('contactSubmitBtn') || form.querySelector('button[type="submit"]');
+    const responseMessage = document.getElementById('contactResponseMessage');
     
     // Disable submit button
     submitBtn.disabled = true;
@@ -346,41 +388,120 @@ class FormValidator {
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
+      phone: formData.get('phone') || '',
+      messageType: formData.get('messageType'),
       subject: formData.get('subject'),
       message: formData.get('message')
     };
 
-    // Simulate processing
-    setTimeout(() => {
-      // Show success message
-      const successMsg = document.createElement('div');
-      successMsg.className = 'response-message show';
-      successMsg.style.cssText = 'display: block; padding: 20px; border-radius: 12px; margin-top: 20px; background: #e8f5e9; border-left: 4px solid #4caf50; color: #2e7d32;';
-      successMsg.innerHTML = `
-        <h3 style="margin-top: 0;">Message Sent Successfully!</h3>
-        <p>Thank you, ${data.name}! Your message has been received.</p>
-        <p>We'll get back to you at <strong>${data.email}</strong> regarding "${data.subject}" as soon as possible.</p>
-        <p style="font-size: 14px; margin-top: 10px;">We typically respond within 24-48 hours.</p>
+    // Configure recipient email (as specified in requirements)
+    const recipientEmail = 'spicesmecca@sm.com';
+
+    // Use AJAX for async submission (as per requirements)
+    this.submitContactFormAJAX(data, recipientEmail, submitBtn, responseMessage, form);
+  }
+
+  async submitContactFormAJAX(data, recipientEmail, submitBtn, responseMessage, form) {
+    try {
+      // Simulate AJAX call (in production, this would be a real API endpoint)
+      await this.simulateAJAXSubmission(data, recipientEmail);
+
+      // Compile email (as per requirements - compile into email)
+      const emailBody = this.compileContactEmail(data, recipientEmail);
+
+      // Show success message with email option
+      responseMessage.className = 'response-message show';
+      responseMessage.style.display = 'block';
+      responseMessage.innerHTML = `
+        <h3 style="margin-top: 0;">✓ Message Validated Successfully!</h3>
+        <p>Thank you, <strong>${data.name}</strong>! Your message has been prepared.</p>
+        <div style="margin-top: 20px; padding: 15px; background: #fff; border-radius: 8px; border: 1px solid #c8e6c9;">
+          <p><strong>Message Type:</strong> ${this.getMessageTypeLabel(data.messageType)}</p>
+          <p><strong>Subject:</strong> ${data.subject}</p>
+          <p><strong>Recipient:</strong> ${recipientEmail}</p>
+        </div>
+        <p style="margin-top: 15px;">Click the button below to send this email using your default email client:</p>
+        <button onclick="window.location.href='mailto:${recipientEmail}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(emailBody)}'" 
+                style="background: #4caf50; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; transition: background 0.3s;">
+          📧 Open Email Client to Send
+        </button>
+        <p style="font-size: 14px; margin-top: 15px; color: #6b4a33;">Or copy the email content and send it manually.</p>
+        <p style="font-size: 12px; margin-top: 10px; color: #999;">Note: Your email client will open with pre-filled content. You can review and send.</p>
       `;
-      
-      form.parentElement.appendChild(successMsg);
 
       // Reset form
       form.reset();
+      document.getElementById('charCount').textContent = '0';
 
       // Re-enable button
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Message';
 
       // Scroll to message
-      successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      responseMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-      // Hide message after 8 seconds
+    } catch (error) {
+      // Error handling (as per requirements)
+      responseMessage.className = 'response-message show error';
+      responseMessage.style.display = 'block';
+      responseMessage.style.background = '#ffebee';
+      responseMessage.style.borderLeftColor = '#f44336';
+      responseMessage.style.color = '#c62828';
+      responseMessage.innerHTML = `
+        <h3 style="margin-top: 0;">✗ Submission Error</h3>
+        <p>Sorry, there was an error processing your message. Please try again or contact us directly at ${recipientEmail}.</p>
+      `;
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  }
+
+  async simulateAJAXSubmission(data, recipientEmail) {
+    // Simulate AJAX delay
+    return new Promise((resolve) => {
       setTimeout(() => {
-        successMsg.classList.remove('show');
-        setTimeout(() => successMsg.remove(), 300);
-      }, 8000);
-    }, 1500);
+        // In a real application, this would be:
+        // const response = await fetch('/api/contact', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify({ ...data, recipient: recipientEmail })
+        // });
+        // return response.json();
+        resolve({ success: true, message: 'Form submitted successfully' });
+      }, 1500);
+    });
+  }
+
+  compileContactEmail(data, recipientEmail) {
+    // Compile information into email (as per requirements)
+    let emailBody = `Dear Spices Mecca Team,\n\n`;
+    emailBody += `This is a ${this.getMessageTypeLabel(data.messageType)} from our contact form.\n\n`;
+    emailBody += `From: ${data.name}\n`;
+    emailBody += `Email: ${data.email}\n`;
+    if (data.phone) {
+      emailBody += `Phone: ${data.phone}\n`;
+    }
+    emailBody += `Message Type: ${this.getMessageTypeLabel(data.messageType)}\n`;
+    emailBody += `Subject: ${data.subject}\n\n`;
+    emailBody += `Message:\n${data.message}\n\n`;
+    emailBody += `---\n`;
+    emailBody += `This message was submitted through the Spices Mecca contact form.\n`;
+    emailBody += `Submitted: ${new Date().toLocaleString()}\n`;
+    
+    return emailBody;
+  }
+
+  getMessageTypeLabel(type) {
+    const types = {
+      'general': 'General Inquiry',
+      'order': 'Order Inquiry',
+      'complaint': 'Complaint',
+      'compliment': 'Compliment/Feedback',
+      'support': 'Customer Support',
+      'other': 'Other'
+    };
+    return types[type] || type;
   }
 }
 

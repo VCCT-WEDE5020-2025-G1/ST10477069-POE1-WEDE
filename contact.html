@@ -120,6 +120,37 @@
       display: block;
     }
 
+    .contact-form select {
+      padding: 12px;
+      border-radius: 8px;
+      border: 2px solid #e2d6c7;
+      font-size: 16px;
+      width: 100%;
+      transition: border-color 0.3s;
+      box-sizing: border-box;
+      background: white;
+      cursor: pointer;
+    }
+
+    .contact-form select:focus {
+      outline: none;
+      border-color: #d4af37;
+    }
+
+    .contact-form select:invalid {
+      color: #999;
+    }
+
+    .contact-form .help-text {
+      font-size: 12px;
+      color: #6b4a33;
+      margin-top: 5px;
+    }
+
+    #charCount {
+      font-weight: 600;
+    }
+
     .contact-form button {
       background-color: #D4AF37;
       color: #4b2e1d;
@@ -192,25 +223,44 @@
     <!-- Form -->
     <div class="contact-form">
       <h2>Contact Us</h2>
-      <form action="#" method="POST" novalidate>
+      <form id="contactForm" action="#" method="POST" novalidate>
         <div class="form-group" style="margin-bottom: 15px;">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter your name</span>
+          <input type="text" name="name" id="contactName" placeholder="Your Full Name" required minlength="2" maxlength="100" pattern="[A-Za-z\s]+" title="Name should contain only letters and spaces" />
+          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter your full name (2-100 characters, letters only)</span>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
-          <input type="email" name="email" placeholder="Your Email" required />
-          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter a valid email</span>
+          <input type="email" name="email" id="contactEmail" placeholder="Your Email Address" required />
+          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter a valid email address</span>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
-          <input type="text" name="subject" placeholder="Subject" required />
-          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter a subject</span>
+          <input type="tel" name="phone" id="contactPhone" placeholder="Phone Number (Optional)" pattern="[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,9}" title="Format: +27 12 345 6789 or 012 345 6789" />
+          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter a valid phone number</span>
+          <span class="help-text" style="font-size: 12px; color: #6b4a33; margin-top: 5px; display: block;">Optional: Format +27 12 345 6789</span>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
-          <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter your message</span>
+          <select name="messageType" id="messageType" required>
+            <option value="">Select Message Type...</option>
+            <option value="general">General Inquiry</option>
+            <option value="order">Order Inquiry</option>
+            <option value="complaint">Complaint</option>
+            <option value="compliment">Compliment/Feedback</option>
+            <option value="support">Customer Support</option>
+            <option value="other">Other</option>
+          </select>
+          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please select a message type</span>
         </div>
-        <button type="submit">Send Message</button>
+        <div class="form-group" style="margin-bottom: 15px;">
+          <input type="text" name="subject" id="contactSubject" placeholder="Subject" required minlength="5" maxlength="200" />
+          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter a subject (5-200 characters)</span>
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+          <textarea name="message" id="contactMessage" rows="6" placeholder="Your Message (Please provide as much detail as possible)" required minlength="10" maxlength="2000"></textarea>
+          <span class="error-message" style="color: #d32f2f; font-size: 14px; display: none;">Please enter your message (10-2000 characters)</span>
+          <span class="help-text" style="font-size: 12px; color: #6b4a33; margin-top: 5px; display: block;"><span id="charCount">0</span>/2000 characters</span>
+        </div>
+        <button type="submit" id="contactSubmitBtn">Send Message</button>
       </form>
+      <div id="contactResponseMessage" style="display: none; padding: 20px; border-radius: 12px; margin-top: 20px; background: #e8f5e9; border-left: 4px solid #4caf50; color: #2e7d32;"></div>
     </div>
   </section>
 
