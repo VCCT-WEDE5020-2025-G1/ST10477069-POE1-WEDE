@@ -27,6 +27,17 @@ body {
   font-size: 28px;
   letter-spacing: 1px;
   color: #D4AF37;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .nav-links {
