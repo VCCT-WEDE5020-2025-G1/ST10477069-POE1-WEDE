@@ -3,21 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spices Mecca | Home</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Spices Mecca | Premium Spices Online | Authentic Spices from Around the World</title>
+  <meta name="description" content="Discover premium authentic spices at Spices Mecca. Shop Persian Saffron, Ceylon Cinnamon, Golden Turmeric, and more. Ethically sourced spices from around the world. Free shipping available." />
+  <meta name="keywords" content="premium spices, authentic spices, saffron, cinnamon, turmeric, black pepper, cardamom, online spices, spice shop, Cape Town spices, South Africa spices, organic spices, Persian saffron, Ceylon cinnamon" />
+  <meta name="author" content="Spices Mecca" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.spicesmecca.com/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.spicesmecca.com/" />
+  <meta property="og:title" content="Spices Mecca | Premium Authentic Spices Online" />
+  <meta property="og:description" content="Discover premium authentic spices from around the world. Shop Persian Saffron, Ceylon Cinnamon, Golden Turmeric and more." />
+  <meta property="og:image" content="https://www.spicesmecca.com/src/images/logo.jpeg" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.spicesmecca.com/" />
+  <meta name="twitter:title" content="Spices Mecca | Premium Authentic Spices" />
+  <meta name="twitter:description" content="Discover premium authentic spices from around the world." />
+  <meta name="twitter:image" content="https://www.spicesmecca.com/src/images/logo.jpeg" />
+  
+  <link rel="stylesheet" href="src/styles/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css">
+  <script src="src/js/main.js" defer></script>
 </head>
 <body>
   <!-- Navigation -->
   <header class="navbar">
-    <div class="logo">Spices Mecca</div>
+    <div class="logo"><img src="src/images/logo.jpeg" alt="Spices Mecca Logo" style="height:40px;vertical-align:middle;"> Spices Mecca</div>
     <nav>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="services.html">Products</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="enquiry.html">Enquiry</a></li>
       </ul>
     </nav>
   </header>
@@ -25,15 +46,97 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Experience the Essence of Authentic Spices</h1>
+      <h1>Premium Authentic Spices from Around the World</h1>
       <p>Welcome to Spices Mecca — your destination for rich aromas, vibrant flavors, and timeless taste from around the world.</p>
-      <a href="services.html" class="btn">Shop Now</a>
+      <a href="#products" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about-section">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>Our Story</h2>
+        <p>Spices Mecca was born from a passion for authentic flavors and a deep respect for tradition. We source our spices directly from local farmers across the globe — ensuring purity, freshness, and sustainability in every grain.</p>
+        <p>Our mission is simple: to bring the soul of the spice markets to your kitchen. Whether you are a home cook or a professional chef, Spices Mecca offers the finest selection of herbs and blends to elevate your dishes.</p>
+        <p>Each product reflects our values — quality, heritage, and excellence. Because at Spices Mecca, every spice tells a story.</p>
+      </div>
+      <div class="about-image">
+        <img src="src/images/logo.jpeg" alt="Spices Mecca - Premium authentic spices from around the world" style="max-width:250px; border-radius: 12px;"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section" id="products">
+    <h2 class="section-title">Our Premium Spices</h2>
+    <p class="section-subtitle">Crafted by nature, perfected by Spices Mecca.</p>
+    <div class="search-container">
+      <input type="text" id="productSearch" placeholder="Search products...">
+      <select id="productSort">
+        <option value="">Sort by...</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="name-asc">Name: A-Z</option>
+        <option value="name-desc">Name: Z-A</option>
+      </select>
+    </div>
+    <div class="product-grid" id="productGrid">
+      <div class="product-card">
+        <a href="Persian-Saffron.html"><img src="src/images/Saffron.jpeg" alt="Premium Persian Saffron threads from Iran - handpicked saffron for luxurious dishes" /></a>
+        <p>Rich in aroma and color, handpicked from the fields of Iran. Perfect for luxurious dishes.</p>
+        <span class="price">R150</span>
+        <h3><a class="product-name-btn" href="Persian-Saffron.html">Persian Saffron</a></h3>
+          </div>
+      <div class="product-card">
+        <a href="Ceylon-Cinnamon.html"><img src="src/images/RB.jpeg" alt="Authentic Ceylon Cinnamon sticks from Sri Lanka - true cinnamon for baking and cooking" /></a>
+        <p>Pure, sweet, and delicate. The finest cinnamon harvested from Sri Lanka's lush forests.</p>
+        <span class="price">R49.99</span>
+        <h3><a class="product-name-btn" href="Ceylon-Cinnamon.html">Ceylon Cinnamon</a></h3>
+        </div>
+      <div class="product-card">
+        <a href="Golden-Turmeric.html"><img src="src/images/R.jpeg" alt="Organic Golden Turmeric powder from India - vibrant yellow turmeric for curries and wellness" /></a>
+        <p>Known for its vibrant color and healing properties, sourced from organic Indian farms.</p>
+        <span class="price">R77.49</span>
+        <h3><a class="product-name-btn" href="Golden-Turmeric.html">Golden Turmeric</a></h3>
+          </div>
+      <div class="product-card">
+        <a href="Tellicherry-Black-Pepper.html"><img src="src/images/RK.jpeg" alt="Tellicherry Black Pepper whole grains from Kerala India - premium black peppercorns" /></a>
+        <p>Strong and aromatic. The king of spices, cultivated in the heart of Kerala, India.</p>
+        <span class="price">R29.99</span>
+        <h3><a class="product-name-btn" href="Tellicherry-Black-Pepper.html">Tellicherry Black Pepper</a></h3>
+        </div>
+      <div class="product-card">
+        <a href="Persian-Cardamom.html"><img src="src/images/RZ.jpeg" alt="Persian Cardamom pods - fragrant cardamom for sweet and savory dishes" /></a>
+        <p>A versatile spice with a complex flavor profile, perfect for both sweet and savory dishes.</p>
+        <span class="price">R100</span>
+        <h3><a class="product-name-btn" href="Persian-Cardamom.html">Persian Cardamom</a></h3>
+          </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Spices Mecca. Crafted with heritage and passion.</p>
+    <h3>About Spices Mecca</h3>
+    <p>At Spices Mecca, we believe in bringing the world's finest spices directly to your kitchen. Our products are ethically sourced, ensuring quality and purity in every grain.</p>
+
+    <p><strong>Policies:</strong> We value transparency and freshness. Read our privacy and return policies for a safe and satisfying shopping experience.</p>
+
+    <div class="contact-info">
+      <p>📞 +27 649201185 
+         📧 spicesmecca@sm.com</p>
+      <p>📍 Cape Town, South Africa</p>
+        </div>
+
+    <div class="discount-section">
+      <p><strong>Get 15% OFF</strong> your first order! Enter your email below:</p>
+      <input type="email" placeholder="Enter your email" />
+      <button>Get Discount</button>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Spices Mecca — Crafted with heritage and passion.
+    </div>
   </footer>
 </body>
 </html>
