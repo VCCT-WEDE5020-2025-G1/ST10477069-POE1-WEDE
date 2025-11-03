@@ -394,3 +394,5 @@ For detailed documentation on specific features:
 --------------------------------------------------------------------
 ST10477069 POE
 
+https://github.com/VCCT-WEDE5020-2025-G1/ST10477069-POE1-WEDE/blob/main/README.md
+
